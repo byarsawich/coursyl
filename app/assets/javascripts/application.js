@@ -28,9 +28,23 @@ function disableButton(item) {
 
 function showLastRow() {
   document.getElementsByClassName("associations")[0].lastElementChild.style.display = "block";
+
+  section.appendChild(copy);
 }
 function keepAdding() {
-  var section = document.getElementsByClassName("associations")[0].lastElementChild
+  var theParent = document.getElementsByClassName("associations")[0];
+  var section = theParent.lastElementChild
+  var theClone  = section.cloneNode(true);
+  var divs = theClone.firstElementChild.getElementsByClassName('span3');
+  for (var i = 0; i < divs.length; i++){
+    newIndex = divs[i].firstElementChild.htmlFor.match(/\d/)[0];
+    newIndex++;
+    divs[i].firstElementChild.htmlFor = divs[i].firstElementChild.htmlFor.replace(/\d/, newIndex);
+    divs[i].firstElementChild.lastElementChild.name = divs[i].firstElementChild.lastElementChild.name.replace(/\d/, newIndex);
+    divs[i].firstElementChild.lastElementChild.id = divs[i].firstElementChild.lastElementChild.id.replace(/\d/, newIndex);
+  }
+  section.style.display = "block";
+  theParent.appendChild(theClone);
 }
 
 function deleteRow(item) {
