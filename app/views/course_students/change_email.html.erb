@@ -26,5 +26,5 @@
     <span class="help-inline">(formerly <%= @student.email %>)</span>
   <% end %>
 
-  <div><%= f.submit "Change Email Address", class: "btn" %></div>
+  <div><%= f.submit "Change Email Address", class: "btn", onclick: "disableButton(this);" %></div>
 <% end %>

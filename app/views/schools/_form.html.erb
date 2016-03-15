@@ -13,6 +13,6 @@
     <span class="field-label">Name</span> <%= f.text_field :name, required: true %>
   <% end %>
 
-  <%= f.submit class: "btn" %>
+  <%= f.submit class: "btn", onclick: "disableButton(this);" %>
 
 <% end %>

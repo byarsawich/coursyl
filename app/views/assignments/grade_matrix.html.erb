@@ -52,6 +52,6 @@
     <%= check_box_tag "grades_released", "Yes", @assignment.grades_released %>
   </p>
 
-  <p><%= submit_tag "Save Scores", class: "btn" %></p>
+  <p><%= submit_tag "Save Scores", class: "btn", onclick: "disableButton(this);" %></p>
 
 <% end %>

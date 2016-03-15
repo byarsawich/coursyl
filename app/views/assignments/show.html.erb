@@ -61,7 +61,7 @@
 
 
     <% if can_turn_in %>
-      <p><%= submit_tag "Save Draft", class: "btn" %> <%= submit_tag "Submit Final Answers", class: "btn" %></p>
+      <p><%= submit_tag "Save Draft", class: "btn", onclick: "disableButton(this);" %> <%= submit_tag "Submit Final Answers", class: "btn", onclick: "disableButton(this);" %></p>
     <% end %>
 
   <% end %>

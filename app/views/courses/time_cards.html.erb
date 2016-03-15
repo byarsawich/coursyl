@@ -28,7 +28,7 @@
       <p>
         <%= text_field_tag :code, "", autofocus: "autofocus" %>
         <br />
-        <%= submit_tag "Check-In/Check-Out", class: "btn" %>
+        <%= submit_tag "Check-In/Check-Out", class: "btn", onclick: "disableButton(this);" %>
       </p>
     <% end %>
   </div>
