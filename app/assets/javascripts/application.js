@@ -28,8 +28,6 @@ function disableButton(item) {
 
 function showLastRow() {
   document.getElementsByClassName("associations")[0].lastElementChild.style.display = "block";
-
-  section.appendChild(copy);
 }
 function keepAdding() {
   var theParent = document.getElementsByClassName("associations")[0];
