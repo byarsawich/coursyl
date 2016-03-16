@@ -38,30 +38,19 @@ $(function() {
     section.css("display", "block");
     theClone.css("display", "none");
     var newIndex = ++theClone.find("label").first().attr("for").match(/\d+/)[0];
-    var underscoreText = theClone.find("label").first().attr("for").replace(/\d+/, newIndex);
-    var arrayText = theClone.find("input[type=text]").first().attr("name").replace(/\d+/, newIndex);
-    theClone.find("label").attr("for", underscoreText);
-    theClone.find("input[type=text]").attr("id", underscoreText);
-    theClone.find("input[type=text]").attr("name", arrayText);
+
+    theClone.find("label").each(function(){
+      $(this).attr("for", $(this).attr("for").replace(/\d+/, newIndex));
+    });
+
+    theClone.find("input[type=text]").each(function(){
+      $(this).attr("name", $(this).attr("name").replace(/\d+/, newIndex));
+      $(this).attr("id", $(this).attr("id").replace(/\d+/, newIndex));
+    });
+
     theParent.append(theClone);
   });
 });
-
-function keepAdding() {
-  var theParent = document.getElementsByClassName("associations")[0];
-  var section = theParent.lastElementChild
-  var theClone  = section.cloneNode(true);
-  var divs = theClone.firstElementChild.getElementsByClassName('span3');
-  for (var i = 0; i < divs.length; i++){
-    newIndex = divs[i].firstElementChild.htmlFor.match(/\d/)[0];
-    newIndex++;
-    divs[i].firstElementChild.htmlFor = divs[i].firstElementChild.htmlFor.replace(/\d/, newIndex);
-    divs[i].firstElementChild.lastElementChild.name = divs[i].firstElementChild.lastElementChild.name.replace(/\d/, newIndex);
-    divs[i].firstElementChild.lastElementChild.id = divs[i].firstElementChild.lastElementChild.id.replace(/\d/, newIndex);
-  }
-  section.style.display = "block";
-  theParent.appendChild(theClone);
-}
 
 //hide record and check checkbox for deleting
 $(function () {
