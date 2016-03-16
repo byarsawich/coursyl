@@ -47,8 +47,16 @@ function keepAdding() {
 }
 
 function deleteRow(item) {
-  item.parentNode.parentNode.style.display = "none";
+  item.parentNode.parentNode.parentNode.style.display = "none";
   item.parentNode.getElementsByTagName('input')[1].checked = true;
+}
+
+function hideRow(item) {
+  item.parentNode.parentNode.style.display = "none";
+  var divs = item.parentNode.parentNode.getElementsByClassName('span3');
+  for (var i = 0; i < divs.length; i++){
+    divs[i].firstElementChild.lastElementChild.value = "";
+  }
 }
 
 /* Smooth scrolling
