@@ -1,3 +1,5 @@
+<a class="dateButton"><i class="fa fa-calendar"></i></a>
+<%= hidden_field_tag 'assignment_id', assignment.id %>
 <% if assignment.status(current_user).name != "Future" %>
   <%= link_to '<i class="fa fa-edit" title="Take Assignment"></i>'.html_safe, assignment_path(assignment) %>
 <% else %>
@@ -18,3 +20,17 @@
   <% end %>
   <%= link_to 'Edit', edit_assignment_path(assignment), class: "btn btn-mini" %>
 <% end %>
+<div class = "dateModal">
+  <%= form_for assignment do |a| %>
+    <div class = "modal-content">
+      <h1 class = "modal-header">Save The Date</h1>
+      <h4> Change the dates for <%= a.object.name %>.</h3>
+      <%= a.label :active_at %>
+      <%= a.date_select :active_at %>
+      <div class="button-wrap">
+        <button type="button" class="cancel-button">Cancel</button>
+        <div class="dateButton"><%= a.submit "Save Dates" %></div>
+      </div>
+    </div>
+  <% end %>
+</div>

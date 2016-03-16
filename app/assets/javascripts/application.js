@@ -69,6 +69,22 @@ $(function () {
   });
 });
 
+$(function() {
+  $(".dateModal").hide(); //hide modals by default
+
+  $(".dateButton").click(function(){
+    // clickedID is assigned the ID of the clicked survey
+    var clickedID = $(this).siblings("input").attr("value");
+    console.log(clickedID);
+    $(this).siblings(".dateModal").show();
+    console.log($(this).siblings(".dateModal").children("input").attr("value"));
+  });
+
+  $(".cancel-button").click(function(){
+    $(".dateModal").hide();
+  });
+
+});
 
 /* Smooth scrolling
    Changes links that link to other parts of this page to scroll
