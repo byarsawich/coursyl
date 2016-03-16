@@ -17,18 +17,35 @@
 
 window.onload=hideLastRow;
 
+//hide the empty row on any accepts_attributes_for form
 function hideLastRow(){
-  document.getElementsByClassName("associations")[0].lastElementChild.style.display = "none";
+  $(".association, .container").last().css("display", "none");
 }
 
-function disableButton(item) {
-  item.disabled = true;
-  item.form.submit();
-}
+//disable submit button after first click and submit form
+$(function() {
+  $("input[type=submit]").on("click", function(){
+    $(this).prop("disabled", true);
+    $(this).closest("form").submit();
+  });
+});
 
-function showLastRow() {
-  document.getElementsByClassName("associations")[0].lastElementChild.style.display = "block";
-}
+$(function() {
+  $(".new-association").on("click", function(){
+    var theParent = $(this).siblings(".associations");
+    var section = theParent.find(".association, .container").last();
+    var theClone = section.clone(true);
+    section.css("display", "block");
+    theClone.css("display", "none");
+    var newIndex = ++theClone.find("label").first().attr("for").match(/\d+/)[0];
+    var underscoreText = theClone.find("label").first().attr("for").replace(/\d+/, newIndex);
+    var arrayText = theClone.find("input[type=text]").first().attr("name").replace(/\d+/, newIndex);
+    theClone.find("label").attr("for", underscoreText);
+    theClone.find("input[type=text]").attr("id", underscoreText);
+    theClone.find("input[type=text]").attr("name", arrayText);
+    theParent.append(theClone);
+  });
+});
 
 function keepAdding() {
   var theParent = document.getElementsByClassName("associations")[0];
@@ -46,18 +63,23 @@ function keepAdding() {
   theParent.appendChild(theClone);
 }
 
-function deleteRow(item) {
-  item.parentNode.parentNode.parentNode.style.display = "none";
-  item.parentNode.getElementsByTagName('input')[1].checked = true;
-}
+//hide record and check checkbox for deleting
+$(function () {
+  $(".delete-association").on('click', function(){
+    $(this).closest(".association, .container").css("display", "none");
+    $(this).siblings("input[type=checkbox]").prop("checked", true);
+  });
+});
 
-function hideRow(item) {
-  item.parentNode.parentNode.style.display = "none";
-  var divs = item.parentNode.parentNode.getElementsByClassName('span3');
-  for (var i = 0; i < divs.length; i++){
-    divs[i].firstElementChild.lastElementChild.value = "";
-  }
-}
+
+//hide empty row if delete is clicked and clear text fields
+$(function () {
+  $(".flush-association").on('click', function(){
+    $(this).closest(".association, .container").css("display", "none");
+    $(this).closest(".association, .container").find("input[type=text]").val("")
+  });
+});
+
 
 /* Smooth scrolling
    Changes links that link to other parts of this page to scroll

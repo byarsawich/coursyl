@@ -70,10 +70,10 @@
           </div>
           <div class="span1">
             <% if ff.object.persisted? %>
-              <%= link_to 'Delete', "javascript: void(0);" class: "btn btn-danger delete-association", onclick: "deleteRow(this);" %>
+              <%= link_to 'Delete', "javascript: void(0);", class: "btn btn-danger delete-association" %>
               <%= ff.check_box :_destroy, class: "destroy", hidden: true %>
             <% else %>
-              <%= link_to 'Delete', "javascript: void(0);" class: "btn btn-danger flush-association", onclick: "hideRow(this);" %>
+              <%= link_to 'Delete', "javascript: void(0);", class: "btn btn-danger flush-association" %>
             <% end %>
           </div>
         </div>
@@ -81,7 +81,7 @@
       <% i += 1 %>
     <% end %>
   </div>
-  <%= link_to '<i class="fa fa-plus"></i> Add Question'.html_safe, "javascript: void(0);" class: "btn btn-mini btn-success new-association", "data-index" => i, onclick: "showLastRow();" %>
+  <%= link_to '<i class="fa fa-plus"></i> Add Question'.html_safe, "javascript: void(0);" class: "btn btn-mini btn-success new-association", "data-index" => i %>
 
   <div class="actions">
     <%= f.submit "Save Assignment and Questions", class: "btn", onclick: "disableButton(this);" %>
