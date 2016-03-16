@@ -36,7 +36,7 @@
               <%= link_to 'Delete', "#", class: "btn btn-danger delete-association", onclick: "deleteRow(this);" %>
               <%= ff.check_box :_destroy, class: "destroy", hidden: true %>
             <% else %>
-              <%= link_to 'Delete', nil, class: "btn btn-danger flush-association" %>
+              <%= link_to 'Delete', "#", class: "btn btn-danger flush-association", onclick: "deleteRow(this);" %>
             <% end %>
           </div>
         </div>

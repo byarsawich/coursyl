@@ -29,6 +29,7 @@ function disableButton(item) {
 function showLastRow() {
   document.getElementsByClassName("associations")[0].lastElementChild.style.display = "block";
 }
+
 function keepAdding() {
   var theParent = document.getElementsByClassName("associations")[0];
   var section = theParent.lastElementChild
@@ -46,8 +47,8 @@ function keepAdding() {
 }
 
 function deleteRow(item) {
-  item.parentNode.getElementsByTagName('input')[1].checked = true;
   item.parentNode.parentNode.style.display = "none";
+  item.parentNode.getElementsByTagName('input')[1].checked = true;
 }
 
 /* Smooth scrolling
