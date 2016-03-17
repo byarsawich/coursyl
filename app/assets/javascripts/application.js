@@ -72,28 +72,31 @@ $(function () {
 });
 
 $(function() {
-  $(".dateModal").hide(); //hide modals by default
+  $(".date-modal").hide(); //hide modals by default
 
-  $(".dateButton").click(function(){
+  $(".date-button").click(function(){
     // clickedID is assigned the ID of the clicked survey
     var clickedID = $(this).siblings("input").attr("value");
     console.log(clickedID);
-    $(this).siblings(".dateModal").show();
-    console.log($(this).siblings(".dateModal").children("input").attr("value"));
+    $(this).siblings(".date-modal").show();
+    console.log($(this).siblings(".date-modal").children("input").attr("value"));
   });
 
-  $(".dateButton2").click(function(){
+  $(".date-button2").click(function(){
     // clickedID is assigned the ID of the clicked survey
     var clickedID = $(this).siblings("input").attr("value");
     console.log(clickedID);
-    $(this).siblings(".dateModal").show();
-    console.log($(this).siblings(".dateModal").children("input").attr("value"));
+    $(this).siblings(".date-modal").show();
+    console.log($(this).siblings(".date-modal").children("input").attr("value"));
   });
 
   $(".cancel-button").click(function(){
-    $(".dateModal").hide();
+    $(".date-modal").hide();
   });
 
+  $(".close").click(function(){
+    $(".date-modal").hide();
+  });
 });
 
 $('.datetimepicker').datetimepicker();

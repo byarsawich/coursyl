@@ -138,7 +138,7 @@ div.node-pointer {
 
 // -------- Are you sure delete modal --------
 
-.dateModal {
+.date-modal {
   z-index: 6;
   position: fixed;
   top: 0;
@@ -164,15 +164,20 @@ div.node-pointer {
     h4 {
       padding-bottom: 25px;
       // font-family: $fontFamily;
-      font-size: 1em;
+      font-size: 1.25em;
       text-align: center;
     }
     .modal-header {
-      // background: $blueaccent;
+      background: #2d798d;
       text-align: center;
       padding: 10px;
       margin-bottom: 30px;
     }
+
+    .modal-body{
+      text-align: center;
+    }
+
     .button-wrap {
       text-align: center;
       button {
@@ -185,14 +190,14 @@ div.node-pointer {
   }
 }
 
-.dateButton {
+.date-button, .cancel-button {
   cursor: pointer;
   background: #555444;
   color: white;
   display: inline;
   // float: right;
   padding: 5px;
-  // border: $borderStyle;
+  border: solid 2px lightgrey;
   border-radius: 3px;
   font-weight: bolder;
   margin:{
@@ -201,6 +206,6 @@ div.node-pointer {
   }
 }
 
-.dateButton2 {
+.date-button2 {
   cursor: pointer;
 }
