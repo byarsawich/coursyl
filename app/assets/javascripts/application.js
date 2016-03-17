@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.datetimepicker
+//= require jquery.datetimepicker/init
 //= require d3
 //= require_tree .
 
@@ -80,11 +82,21 @@ $(function() {
     console.log($(this).siblings(".dateModal").children("input").attr("value"));
   });
 
+  $(".dateButton2").click(function(){
+    // clickedID is assigned the ID of the clicked survey
+    var clickedID = $(this).siblings("input").attr("value");
+    console.log(clickedID);
+    $(this).siblings(".dateModal").show();
+    console.log($(this).siblings(".dateModal").children("input").attr("value"));
+  });
+
   $(".cancel-button").click(function(){
     $(".dateModal").hide();
   });
 
 });
+
+$('.datetimepicker').datetimepicker();
 
 /* Smooth scrolling
    Changes links that link to other parts of this page to scroll
