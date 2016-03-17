@@ -81,9 +81,9 @@
       <% i += 1 %>
     <% end %>
   </div>
-  <%= link_to '<i class="fa fa-plus"></i> Add Question'.html_safe, "javascript: void(0);" class: "btn btn-mini btn-success new-association", "data-index" => i %>
+  <%= link_to '<i class="fa fa-plus"></i> Add Question'.html_safe, "javascript: void(0);", class: "btn btn-mini btn-success new-association", "data-index" => i %>
 
   <div class="actions">
-    <%= f.submit "Save Assignment and Questions", class: "btn", onclick: "disableButton(this);" %>
+    <%= f.submit "Save Assignment and Questions", class: "btn"%>
   </div>
 <% end %>

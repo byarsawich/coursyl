@@ -45,7 +45,7 @@ $(function() {
       $(this).attr("for", $(this).attr("for").replace(/\d+/, newIndex));
     });
 
-    theClone.find("input[type=text]").each(function(){
+    theClone.find("input").each(function(){
       $(this).attr("name", $(this).attr("name").replace(/\d+/, newIndex));
       $(this).attr("id", $(this).attr("id").replace(/\d+/, newIndex));
     });
