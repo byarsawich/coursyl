@@ -29,11 +29,11 @@
       <div class="modal-body">
         <div>
           <%= a.label :active_at %>
-          <%= a.text_field :active_at, class: 'datetimepicker' %>
+          <%= a.text_field :active_at, class: 'datetimepicker', value: a.object.active_at.strftime("%F %T") %>
         </div>
         <div>
           <%= a.label :due_at %>
-          <%= a.text_field :due_at, class: 'datetimepicker' %>
+          <%= a.text_field :due_at, class: 'datetimepicker', value: a.object.due_at.strftime("%F %T") %>
         </div>
         </div>
       <div class="button-wrap">
